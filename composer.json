@@ -1,9 +1,15 @@
 {
-    "name": "laravel/laravel",
+    "name": "wrwebdev/exchange_rates",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "View hourly rates in your preferred currency.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Will Robertson",
+            "homepage": "https://wrweb.dev"
+        }
+    ],
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",

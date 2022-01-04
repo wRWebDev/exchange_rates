@@ -1,0 +1,97 @@
+$size-title: 48pt;
+$size-header: 24pt;
+$size-subheader: 12pt;
+$size-content: 14pt;
+$size-subcontent: 11pt;
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Roboto:wght@300&display=swap');
+
+$font-header: 'Josefin Sans', sans-serif;
+$font-content: 'Roboto', sans-serif;
+
+* {
+    font-family: $font-content;
+    font-size: $size-content;
+    letter-spacing: 0.03em;
+}
+
+h1, 
+h2, 
+h3, 
+header, 
+nav, 
+label,
+button {
+    font-family: $font-header;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+h4,
+article, 
+p, 
+input, 
+select {
+    font-family: $font-content;
+    letter-spacing: 0.03em;
+}
+
+h1, 
+h2, 
+h4, 
+article, 
+p, 
+input, 
+label,
+a {
+    color: $black;
+}
+
+h3, 
+input::placeholder {
+    color: $midgrey;
+}
+
+button {
+    color: $white;
+    font-weight:400;
+}
+
+h1 {
+    font-size: $size-title;
+    line-height: $size-title;
+}
+
+h2 {
+    font-size: $size-header;
+    line-height: $size-header;
+}
+
+h3, 
+label,
+button {
+    font-size: $size-subheader;
+    line-height: $size-subheader;
+}
+
+h4 {
+    font-size: $size-subcontent;
+    line-height: 13pt;
+}
+
+p,
+article,
+input,
+select {
+    font-size: $size-content;
+    line-height: 16pt;
+}
+
+p {
+    margin: 10pt 0;
+}
+
+a:hover {
+    color: $lightgrey;
+    transition: color 200ms ease;
+}

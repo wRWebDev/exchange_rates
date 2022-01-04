@@ -1,0 +1,173 @@
+@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Roboto:wght@300&display=swap);
+* {
+  font-family: "Roboto", sans-serif;
+  font-size: 14pt;
+  letter-spacing: 0.03em;
+}
+
+h1,
+h2,
+h3,
+header,
+nav,
+label,
+button {
+  font-family: "Josefin Sans", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+h4,
+article,
+p,
+input,
+select {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.03em;
+}
+
+h1,
+h2,
+h4,
+article,
+p,
+input,
+label,
+a {
+  color: black;
+}
+
+input::-moz-placeholder {
+  color: rgba(37, 37, 37, 0.8);
+}
+
+input:-ms-input-placeholder {
+  color: rgba(37, 37, 37, 0.8);
+}
+
+h3,
+input::placeholder {
+  color: rgba(37, 37, 37, 0.8);
+}
+
+button {
+  color: white;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 48pt;
+  line-height: 48pt;
+}
+
+h2 {
+  font-size: 24pt;
+  line-height: 24pt;
+}
+
+h3,
+label,
+button {
+  font-size: 12pt;
+  line-height: 12pt;
+}
+
+h4 {
+  font-size: 11pt;
+  line-height: 13pt;
+}
+
+p,
+article,
+input,
+select {
+  font-size: 14pt;
+  line-height: 16pt;
+}
+
+p {
+  margin: 10pt 0;
+}
+
+a:hover {
+  color: rgba(0, 0, 0, 0.4);
+  transition: color 200ms ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #252525;
+  padding: 0 40pt;
+  height: 60pt;
+}
+nav ul {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+nav ul li {
+  margin: 0 20pt 0 0;
+  font-size: 12pt;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  color: white;
+}
+
+main {
+  min-height: calc(100vh - 60pt);
+  margin: 80pt 40pt 20pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .card {
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 10pt rgba(0, 0, 0, 0.1), 2pt 2pt 4pt rgba(0, 0, 0, 0.2);
+  padding: 10pt;
+  margin: 10pt 0;
+}
+
+.user {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10pt;
+}
+.user img {
+  width: 60pt;
+  height: 60pt;
+  border-radius: 100%;
+}
+.user .info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.user .info h2 {
+  width: 100%;
+  text-align: right;
+}
+.user .info h2 span {
+  font-size: 12pt;
+}
