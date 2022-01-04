@@ -10,7 +10,9 @@ class HomeController extends Controller
     
     public function display() {
 
-        $users = DB::select('select * from users');
+        $users = DB::table('users')
+            ->orderBy('id', 'desc')
+            ->get();
         return view('home', ['users' => $users]);
         
     }

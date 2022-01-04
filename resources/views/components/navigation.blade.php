@@ -3,11 +3,11 @@
 
     <ul>
 
-        <a :href="route('home')">
+        <a href="{{route('home')}}">
             <li>Users</li>
         </a>
 
-        <a :href="route('adduser')">
+        <a href="{{route('home')}}">
             <li>Add New User</li>
         </a>
 

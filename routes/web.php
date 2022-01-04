@@ -16,3 +16,5 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'display'])
     ->name('home');
+
+Route::get('/user/{user}', ['as' => 'user', 'uses' => 'App\Http\Controllers\UsersController@display']);

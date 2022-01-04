@@ -1,14 +1,13 @@
 .user {
 
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 10pt;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20pt;
 
     img {
-        width: 60pt;
-        height: 60pt;
-        border-radius: 100%;
+        width: 100pt;
+        height: 100%;
     }
 
     .info {
@@ -18,13 +17,17 @@
         align-items: flex-start;
         justify-content: space-between;
 
-        h2 {
-
+        h1 {
             width: 100%;
             text-align: right;
             span {
                 font-size: 12pt;
             }
+            font-size: 30pt;
+        }
+
+        h2 {
+            font-size: 20pt;
         }
     }
 

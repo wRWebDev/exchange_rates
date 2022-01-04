@@ -1,13 +1,14 @@
-<div class="card user">
+<a class="card user" href="{{"user/{$user->id}"}}">
     <img src="{{ $user->img }}" alt="Profile image" />
     <div class="info">
 
         <div>
-            <h3>{{ $user->name }}</h3>
-            <h4>{{ $user->company }}</h4>
+            <h2>{{ $user->name }}</h2>
+            <h3>{{ $user->company }}</h3>
+            <p>{{ $user->role }}</p>
         </div>
 
-        <h2>{{ $user->hourly_rate }}<span>{{ $user->rate_currency }}</span></h2>
+        <h1>{{ $user->hourly_rate }}<span>{{ $user->rate_currency }}</span></h1>
 
     </div>
-</div>
+</a>
