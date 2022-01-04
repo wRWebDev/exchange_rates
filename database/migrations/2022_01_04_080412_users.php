@@ -22,9 +22,8 @@ class Users extends Migration
             $table->string('name');
             $table->string('role');
             $table->string('company');
-            $table->integer('hourly_rate');
+            $table->integer('rate');
             $table->enum('rate_currency', $currencies);
-            $table->enum('viewing_currency', $currencies);
             $table->string('img');
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();

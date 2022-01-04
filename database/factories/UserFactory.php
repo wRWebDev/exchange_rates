@@ -23,9 +23,8 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'role' => $this->faker->jobTitle(),
             'company' => $this->faker->company(),
-            'hourly_rate' => rand(20,100),
+            'rate' => rand(20,100),
             'rate_currency' => $currencies[ rand(0,2) ],
-            'viewing_currency' => $currencies[ rand(0,2) ],
             'img' => ('https://randomuser.me/api/portraits/lego/' . rand(0,8) . '.jpg'),
             'remember_token' => Str::random(10),
         ];

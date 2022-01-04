@@ -21,7 +21,7 @@ class RateSeeder extends Seeder
             [ 'from' => "EUR", 'to' => "GBP", 'rate' => "0.9" ],
             [ 'from' => "EUR", 'to' => "USD", 'rate' => "1.2" ],
             [ 'from' => "USD", 'to' => "GBP", 'rate' => "0.7" ],
-            [ 'from' => "USD", 'to' => "EUR", 'rate' => "0.8" ],
+            [ 'from' => "USD", 'to' => "EUR", 'rate' => "0.8" ]
         ];
 
         DB::table('exchange_rates')->insertOrIgnore( $defaultRates );

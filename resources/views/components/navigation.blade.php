@@ -7,7 +7,7 @@
             <li>Users</li>
         </a>
 
-        <a href="{{route('home')}}">
+        <a href="{{route('addUser')}}">
             <li>Add New User</li>
         </a>
 

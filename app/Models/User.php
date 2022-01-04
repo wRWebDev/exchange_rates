@@ -21,9 +21,8 @@ class User extends Authenticatable
         'name',
         'role',
         'company',
-        'hourly_rate',
+        'rate',
         'rate_currency',
-        'viewing_currency',
         'img'
     ];
 

@@ -1,4 +1,4 @@
-<a class="card user" href="{{"user/{$user->id}"}}">
+<a class="card user" href="{{"users/{$user->id}"}}">
     <img src="{{ $user->img }}" alt="Profile image" />
     <div class="info">
 
@@ -8,7 +8,7 @@
             <p>{{ $user->role }}</p>
         </div>
 
-        <h1>{{ $user->hourly_rate }}<span>{{ $user->rate_currency }}</span></h1>
+        <h1>{{ $user->rate }}<span>{{ $user->rate_currency }}</span></h1>
 
     </div>
 </a>

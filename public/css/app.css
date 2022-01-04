@@ -98,6 +98,11 @@ a:hover {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: none;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
 }
 
 html,
@@ -140,7 +145,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 main .card {
   width: 100%;
@@ -148,6 +153,52 @@ main .card {
   box-shadow: 0 0 10pt rgba(0, 0, 0, 0.1), 2pt 2pt 4pt rgba(0, 0, 0, 0.2);
   padding: 10pt;
   margin: 10pt 0;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+form fieldset {
+  margin: 20pt 0;
+}
+form label {
+  width: 100%;
+  margin-top: 40px;
+}
+form input,
+form .input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 7px 7px 4px;
+  border: 1px solid black;
+  margin: 4px 0;
+  border-radius: 0;
+}
+form input:focus,
+form input:focus-visible,
+form select:focus,
+form select:focus-visible,
+form textarea:focus,
+form textarea:focus-visible {
+  outline: none;
+}
+form .required {
+  color: #921b1b;
+}
+form button {
+  background: black;
+  padding: 7pt 14pt;
+  text-transform: uppercase;
+}
+form .submitContainer {
+  margin: 10pt 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .user {
