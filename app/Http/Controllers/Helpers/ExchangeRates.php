@@ -25,18 +25,29 @@
         
         private $table = 'exchange_rates';
 
-        public function get( bool $forceLatest = false, string $baseCurrency = null ) {
+        public function get( 
+            string $baseCurrency, 
+            bool $forceLatest = false, 
+            bool $forceLocal = false 
+        ) {
 
+            // Local driver as fallback
+            if( !$_ENV['EXCHANGE_RATE_API_KEY'] || $forceLocal )
+                return $this->getRatesLocally( $baseCurrency );
+
+            // Are DB rates too old?
             $numberOfStaleRates = DB::table( $this->table )
                 ->whereRaw( 'updated_at < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY)' )
                 ->count();
 
+            // Replenish DB rates if too old
             if( $numberOfStaleRates || $forceLatest )
                 $this->saveRatesToDB( $this->fetchLatestFromAPI() );
 
+            // Return the exchange rates from the base currency
             return DB::table( $this->table )
-                ->select( 'from', 'rate', 'updated_at' )
-                ->where( 'to', '=', $baseCurrency ?: Auth::user()->currency )
+                ->select( 'to', 'rate', 'updated_at' )
+                ->where( 'from', '=', $baseCurrency ?: Auth::user()->currency )
                 ->get();
 
         }
@@ -81,8 +92,8 @@
 
         }
 
-        private function getRatesLocally() {
-            return [
+        private function getRatesLocally( $base ) {
+            $localRates = [
                 ( object )[ 'from' => "GBP", 'to' => "USD", 'rate' => "1.3" ],
                 ( object )[ 'from' => "GBP", 'to' => "EUR", 'rate' => "1.1" ],
                 ( object )[ 'from' => "EUR", 'to' => "GBP", 'rate' => "0.9" ],
@@ -90,6 +101,9 @@
                 ( object )[ 'from' => "USD", 'to' => "GBP", 'rate' => "0.7" ],
                 ( object )[ 'from' => "USD", 'to' => "EUR", 'rate' => "0.8" ]
             ];
+            return array_filter( $localRates, function( $rate ) use( $base ) {
+                return $rate->from === $base;
+            });
         }
 
     }

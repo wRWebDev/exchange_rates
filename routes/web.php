@@ -16,14 +16,30 @@ use App\Models\User;
 |
 */
 
+/**************/
+/* View Users */
+/**************/
+
 Route::get('/', [HomeController::class, 'display'])
     ->name('home');
 
-Route::get('/users/{user}', ['as' => 'user', 'uses' => 'App\Http\Controllers\UsersController@displayUsers']);
+/*************/
+/* View User */
+/*************/
+
+Route::get('/users/{user}', [
+    'as' => 'user', 
+    'uses' => 'App\Http\Controllers\UsersController@displayUser'
+]);
+
+/************/
+/* Add User */
+/************/
 
 Route::get('/add-user', [UsersController::class, 'displayAddUser'])
     ->name('addUser');
 
+//  Handle form submission
 Route::post('/add-user', function() {
     User::create([
         'name' => request('name'),

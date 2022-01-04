@@ -9,12 +9,28 @@ use App\Http\Controllers\Helpers\ExchangeRates;
 class UsersController extends Controller
 {
     
-    public function displayUsers( string $id ) {
+    public function displayUser( string $id ) {
 
         $user = DB::table('users')
             ->where('id', '=', $id)
             ->get();
-        return view('users.user', ['users' => $user]);
+
+        $exchangeHelper = new ExchangeRates;
+        $currencies = $exchangeHelper->currencies;
+        $baseCurrency = $user[0]->rate_currency;
+        $xchangeRates = $exchangeHelper->get( $baseCurrency, false, true );
+
+        $convertedRates = array_map(function( $rate ) use( $user ) {
+            return ( object )[
+                'to' => $rate->to,
+                'hourly' => ( int )$user[0]->rate * ( float )$rate->rate
+            ];
+        }, $xchangeRates);
+
+        return view('users.user', [
+            'users' => $user,
+            'convertedRates' => $convertedRates
+        ]);
         
     }
 
