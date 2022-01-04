@@ -12,7 +12,7 @@
         @foreach( $convertedRates as $rate )
             <div class="card">
                 <h3>{{$rate->to}}</h3>
-                <h1>{{$rate->hourly}}</h1>
+                <h1>{{$rate->symbol}}{{$rate->hourly}}</h1>
             </div>
         @endforeach
     </div>

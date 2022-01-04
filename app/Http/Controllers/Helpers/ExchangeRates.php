@@ -45,10 +45,13 @@
                 $this->saveRatesToDB( $this->fetchLatestFromAPI() );
 
             // Return the exchange rates from the base currency
-            return DB::table( $this->table )
+            $ratesToReturn = DB::table( $this->table )
                 ->select( 'to', 'rate', 'updated_at' )
                 ->where( 'from', '=', $baseCurrency ?: Auth::user()->currency )
-                ->get();
+                ->get()
+                ->toArray();
+
+            return $ratesToReturn;
 
         }
 
@@ -104,6 +107,18 @@
             return array_filter( $localRates, function( $rate ) use( $base ) {
                 return $rate->from === $base;
             });
+        }
+
+        public function getSymbol( $currency ) {
+
+            $symbols = [
+                'GBP' => "£",
+                'USD' => "$",
+                'EUR' => "€"
+            ];
+
+            return $symbols[$currency];
+
         }
 
     }
